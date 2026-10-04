@@ -1,4 +1,3 @@
-const SITE_URL = import.meta.env.VITE_SITE_URL || 'http://localhost:5173'
 const STORAGE_KEY = 'aps_ref'
 
 /**
@@ -22,11 +21,15 @@ export function clearStoredRef() {
   localStorage.removeItem(STORAGE_KEY)
 }
 
+const getSiteUrl = () => {
+  return typeof window !== 'undefined' ? window.location.origin : 'http://localhost:5173'
+}
+
 /**
  * Build the WhatsApp share URL for a given referral code.
  */
 export function buildWhatsAppShareUrl(referralCode) {
-  const link = `${SITE_URL}/?ref=${referralCode}`
+  const link = `${getSiteUrl()}/?ref=${referralCode}`
   const message = encodeURIComponent(
     `Hey! 👋 I just signed up for a free AI workshop where we build a real AI project in just 60 minutes.\n\n` +
     `🚀 *Build Your First AI Project in 60 Minutes* — completely free!\n\n` +
@@ -40,7 +43,7 @@ export function buildWhatsAppShareUrl(referralCode) {
  * Build the referral link for a code.
  */
 export function buildReferralLink(referralCode) {
-  return `${SITE_URL}/?ref=${referralCode}`
+  return `${getSiteUrl()}/?ref=${referralCode}`
 }
 
 export function buildDiscordShareUrl(referralCode) {
