@@ -71,35 +71,33 @@ export default function Landing() {
 
         {/* Headline */}
         <h1 className="animate-fade-in-up delay-100" style={{
-          fontSize: 'clamp(2.25rem, 6vw, 4rem)',
+          fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
           fontWeight: 800, lineHeight: 1.1,
-          maxWidth: 780, marginBottom: '1rem',
+          maxWidth: 800, marginBottom: '1.25rem',
         }}>
-          Don't just say you know AI.{' '}
-          <span className="gradient-text">Build something.</span>
+          BUILD. SHIP. <span className="gradient-text">PROVE.</span>
         </h1>
 
         {/* Subhead */}
         <p className="animate-fade-in-up delay-200" style={{
-          fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
-          color: 'var(--color-muted)', maxWidth: 580,
-          marginBottom: '2.5rem', lineHeight: 1.7,
+          fontSize: 'clamp(1.1rem, 2.5vw, 1.25rem)',
+          color: 'var(--color-text)', opacity: 0.9, maxWidth: 640,
+          marginBottom: '2.5rem', lineHeight: 1.6,
         }}>
-          Join other final-year engineering students building a real, deployed AI project
-          in just <strong style={{ color: 'var(--color-text)' }}>60 minutes</strong> — for free.
+          Don't just say you know AI. Join final-year engineering students building a real, deployed AI project in just <strong style={{ color: 'var(--color-primary)' }}>60 minutes</strong> — for free.
         </p>
 
         {/* Workshop pill */}
         <div className="glass animate-fade-in-up delay-300" style={{
-          display: 'inline-flex', alignItems: 'center', gap: '1rem',
-          padding: '0.75rem 1.5rem', marginBottom: '2rem',
-          flexWrap: 'wrap', justifyContent: 'center',
+          display: 'inline-flex', alignItems: 'center', gap: '1.25rem',
+          padding: '0.75rem 1.75rem', marginBottom: '2.5rem',
+          flexWrap: 'wrap', justifyContent: 'center', background: 'rgba(255,255,255,0.03)'
         }}>
           <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--color-accent)', fontWeight: 600, fontSize: '0.9rem' }}>
             <Clock size={15} /> 60 Minutes
           </span>
           <span style={{ color: 'var(--color-border)' }}>|</span>
-          <span style={{ color: 'var(--color-muted)', fontSize: '0.9rem' }}>Build Your First AI Project</span>
+          <span style={{ color: 'var(--color-text)', opacity: 0.8, fontSize: '0.9rem' }}>Your First AI Project</span>
           <span style={{ color: 'var(--color-border)' }}>|</span>
           <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--color-success)', fontWeight: 600, fontSize: '0.9rem' }}>
             <Star size={13} fill="currentColor" /> Free
@@ -111,18 +109,18 @@ export default function Landing() {
           <button
             id="hero-cta-readiness"
             className="btn-primary"
-            style={{ fontSize: '1.05rem', padding: '1rem 2.25rem' }}
+            style={{ fontSize: '1.1rem', padding: '1rem 2.5rem' }}
             onClick={() => navigate('/readiness')}
           >
-            Check My AI Readiness <ArrowRight size={18} />
+            Get My AI Project <ArrowRight size={18} />
           </button>
-          <button
-            id="hero-cta-register"
+          <a
+            href="#how-it-works"
             className="btn-secondary"
-            onClick={() => navigate('/register')}
+            style={{ fontSize: '1.05rem', padding: '1rem 2.5rem' }}
           >
-            Register Now →
-          </button>
+            See How It Works
+          </a>
         </div>
       </section>
 

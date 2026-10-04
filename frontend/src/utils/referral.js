@@ -43,6 +43,26 @@ export function buildReferralLink(referralCode) {
   return `${SITE_URL}/?ref=${referralCode}`
 }
 
+export function buildDiscordShareUrl(referralCode) {
+  const link = buildReferralLink(referralCode)
+  const message = encodeURIComponent(
+    `Yo everyone! I'm joining the AI Project Sprint to build an AI project in 60 mins. It's totally free and geared toward students. Join me here: ${link}`
+  )
+  // Discord doesn't have a direct share URL with text pre-filled like WhatsApp/Twitter,
+  // but we can just copy to clipboard or open a generic discord url. 
+  // Actually, standard practice for Discord web sharing is often just a mailto or clipboard action. 
+  // We'll return the raw text to be copied or we can't reliably open the discord app with text prefilled.
+  // Wait, some use https://discord.com/channels/@me but it doesn't prefill.
+  // We'll return the message so the UI can copy it to clipboard.
+  return message
+}
+
+export function buildLinkedInShareUrl(referralCode) {
+  const link = buildReferralLink(referralCode)
+  const text = encodeURIComponent("I'm excited to join the AI Project Sprint! I'll be building my first AI project in 60 minutes. Fellow engineering students, join me and let's build together! 🚀")
+  return `https://www.linkedin.com/feed/?shareActive=true&text=${text}%0A${encodeURIComponent(link)}`
+}
+
 /** Milestone definitions */
 export const MILESTONES = [
   { count: 1,  emoji: '🔥', label: 'Spark',           desc: 'First referral!' },
